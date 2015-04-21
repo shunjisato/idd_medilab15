@@ -19,8 +19,9 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-    ofVec2f position;
-    ofVec2f velocity;
-    
+    static const int num = 7000; //定数
+    ofVec3f position[num];
+    ofVec3f velocity[num];
+    ofColor color[num];
     
    };
