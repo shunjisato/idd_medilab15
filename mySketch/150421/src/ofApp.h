@@ -19,12 +19,8 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-    static const int CIRCLE_NUM = 222;
+    ofVec2f position;
+    ofVec2f velocity;
     
-    ofVec3f position[CIRCLE_NUM];
-    ofVec3f velocity[CIRCLE_NUM];
-    ofVec3f force[CIRCLE_NUM];
-    
-    float friction;
     
    };

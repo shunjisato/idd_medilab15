@@ -4,48 +4,25 @@
 void ofApp::setup(){
     ofBackground(0, 0, 0);
     ofSetFrameRate(60);
-    ofSetCircleResolution(32);
+    ofSetCircleResolution(64);
     
-    for(int i=0;i<CIRCLE_NUM; i++){
-        position[i].x = ofRandom(ofGetWidth());
-        position[i].y = ofRandom(ofGetHeight());
-        position[i].z = ofRandom(-300, 300);
-        velocity[i].set(ofRandom(-10, 10), ofRandom(-10, 10));
-        force[i].set(0,0);
+    position.x = ofRandom(ofGetWidth());
+    position.y = ofRandom(ofGetHeight());
+    velocity.x = ofRandom(-5, 5);
+    velocity.y = ofRandom(-5, 5);
+    
 
-    }
-
-    friction = 0.001;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    for (int i = 0; i < CIRCLE_NUM; i++) {
-        // 力をリセット
-        force[i].set(0, 0);
-        // 摩擦力の計算
-        force[i] -= velocity[i] * friction;
-        // 力から速度を算出
-        velocity[i] += force[i];
-        // 速度から位置を算出
-        position[i] += velocity[i];
-        
-        // 画面からはみ出たらバウンドさせる
-        if (position[i].x < 0 || position[i].x > ofGetWidth()) {
-            velocity[i].x *= -1;
-        }
-        if (position[i].y < 0 || position[i].y > ofGetHeight()) {
-            velocity[i].y *= -1;
-        }
-    }
+    position += velocity;
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofSetColor(100, 30, 200);
-    for(int i=0; i<CIRCLE_NUM; i++){
-    ofCircle(position[i], 4);
-    }
+    ofCircle(position.x,position.y, 100);
     
 }
 
