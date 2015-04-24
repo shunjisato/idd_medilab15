@@ -12,15 +12,15 @@ void ofApp::setup(){
         position[i].z = ofRandom(-3, 3);
         velocity[i].x = ofRandom(-3, 3);
         velocity[i].y = ofRandom(-3, 3);
-        velocity[i].z = ofRandom(-3, 3);
+        velocity[i].z = ofRandom(-6, 6);
         color[i].r = ofRandom(255);
         color[i].g = ofRandom(255);
         color[i].b = ofRandom(255);
-        color[i].a = ofRandom(255);
+        color[i].a = ofRandom(10, 30);
         
     }
     
-    box.set(50);
+    box.set(40);
 }
 
 //--------------------------------------------------------------
@@ -45,7 +45,7 @@ void ofApp::draw(){
     for(int i=0; i<num; i++){
         ofSetColor(color[i]);
         box.setPosition(position[i].x, position[i].y, position[i].z);
-        box.draw();
+        box.drawWireframe();
     }
 
 }
