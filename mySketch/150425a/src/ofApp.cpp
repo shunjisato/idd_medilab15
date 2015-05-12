@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofBackground(255,255,255);
+    ofBackground(0,0,0);
     ofSetFrameRate(60);
     
     nCurveVertices = num;
@@ -50,7 +50,7 @@ void ofApp::update(){
         if(curveVertices[i].y > ofGetHeight() || curveVertices[i].y < 0){
             velocity[i].y *= -1;
         }
-        if(curveVertices[i].z > 1000 || curveVertices[i].y < -1000){
+        if(curveVertices[i].z > 700 || curveVertices[i].y < -700){
             velocity[i].z *= -1;
         }
         
@@ -69,7 +69,7 @@ void ofApp::draw(){
     // 		items so the curve actually goes through those points
     //
     
-    ofSetColor(170, 255, 199, 220);
+    ofSetColor(255, 255, 255, 1);
     ofBeginShape();
     
     for (int i = 0; i < nCurveVertices; i++){
@@ -101,7 +101,7 @@ void ofApp::draw(){
     // show a faint the non-curve version of the same polygon:
     ofEnableAlphaBlending();
     //    ofNoFill();
-    ofSetColor(0,0,200,40);
+    ofSetColor(255,255,255,40);
     ofBeginShape();
     for (int i = 0; i < nCurveVertices; i++){
         ofVertex(curveVertices[i].x, curveVertices[i].y, curveVertices[i].z);
@@ -109,7 +109,7 @@ void ofApp::draw(){
     ofEndShape(true);
     
     
-    ofSetColor(100,0,0,80);
+    ofSetColor(255,255,255,80);
     for (int i = 0; i < nCurveVertices; i++){
         if (curveVertices[i].bOver == true) ofFill();
         //        else ofNoFill();
