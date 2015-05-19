@@ -1,7 +1,7 @@
 #include "ParticleVec3.h"
 
 ParticleVec3::ParticleVec3(){
-    radius = 5.0;
+    radius = 1.0;
     friction = 0.01;
     mass = 1.0;
     position.set(ofGetWidth()/2.0, ofGetHeight()/2.0, 0);

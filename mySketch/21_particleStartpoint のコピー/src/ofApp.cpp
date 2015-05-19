@@ -4,16 +4,26 @@
 void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(0);
+    mesh.setMode(OF_PRIMITIVE_POINTS);
+    glPointSize(3.0);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    particle.update();
+    for(int i =0; i<num; i++){
+        particle[i].addForce(ofVec2f(0, 1.0));
+        particle[i].update();
+        particle[i].bounceOfWalls();
+        
+        mesh.addVertex(ofVec2f(particle[i].position.x, particle[i].position.y));
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    particle.draw();
+    for(int i=0; i<num; i++){
+        particle[i].draw();
+    }
 }
 
 //--------------------------------------------------------------
@@ -43,10 +53,16 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-    particle.position.set(x, y);
-    particle.velocity.set(0,0);
-    particle.acceleration.set(ofRandom(-10,10),ofRandom(-10, 10));
-    
+    for(int i=0; i<num; i++){
+        particle[i].position.set(x, y);
+        particle[i].velocity.set(0,0);
+//        particle[i].mass = 10.0;
+        float length = ofRandom(20);
+        float angle = ofRandom(2 * PI);
+        float rx = length * cos(angle);
+        float ry = length * sin(angle);
+        particle[i].acceleration.set(rx, ry);
+    }
 }
 
 //--------------------------------------------------------------

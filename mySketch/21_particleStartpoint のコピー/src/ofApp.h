@@ -20,6 +20,9 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    ParticleVec2 particle;
+    static const int num = 50000;
     
+    ParticleVec2 particle[num];
+    
+    ofVboMesh mesh;
 };
