@@ -4,8 +4,13 @@
 void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(0);
+<<<<<<< HEAD
 //    mesh.setMode(OF_PRIMITIVE_LINES);
      mesh.setMode(OF_PRIMITIVE_LINE_LOOP);
+=======
+    mesh.setMode(OF_PRIMITIVE_LINES);
+    //mesh.setMode(OF_PRIMITIVE_LINE_STRIP);
+>>>>>>> tado/master
 }
 
 //--------------------------------------------------------------
@@ -58,7 +63,7 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
@@ -72,6 +77,6 @@ void ofApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
+void ofApp::dragEvent(ofDragInfo dragInfo){
     
 }
