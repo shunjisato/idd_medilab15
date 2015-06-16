@@ -1,10 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxOsc.h"
-
-#define HOST "172.21.23.209"
-#define PORT 2222
+#include "ofxTET.h"
 
 class ofApp : public ofBaseApp{
 
@@ -22,8 +19,13 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
-    ofxOscSender sender;
+
+    
+    void exit();
+    ofxTET tet;
+    gtl::GazeData recentGazeData;
+    
+    ofVideoGrabber cam;
     
 
 };

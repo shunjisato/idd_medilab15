@@ -2,37 +2,44 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    cam.initGrabber(640, 480); //input cam
+    ofSetFrameRate(60);
+    ofBackground(0);
     
-    gui.setup();
-    gui.add(thresh.setup("threshhold", 127, 0, 255));
+    movie.loadMovie("fingers.mov");
     
+    screenPosition.set(512, 20);
+    threshold = 300;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    cam.update(); //input cam
-    if(cam.isFrameNew()){
-        background.update(cam, thresh);
-        contourFinder.setThreshold(thresh);
-        contourFinder.findContours(cam);
-        
-    }
+    movie.update();
+    personPosition.set(mouseX, mouseY);
+    distance = ofDist(screenPosition.x, screenPosition.y, personPosition.x, personPosition.y);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    cam.draw(0,0); //input cam
-    contourFinder.draw();
-    gui.draw();
+    ofSetColor(255, 0, 0);
+    ofCircle(screenPosition.x, screenPosition.y, 5);
+    ofCircle(personPosition.x, personPosition.y, 5);
     
+    ofSetColor(255);
+    ofLine(screenPosition.x, screenPosition.y, personPosition.x, personPosition.y);
+    
+    if (distance < threshold) {
+        movie.play();
+        movie.draw(0, 0);
+    } else {
+        movie.stop();
+        movie.setFrame(0);
+    }
+    ofDrawBitmapString("Distance = " + ofToString(distance), 800, 20);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if(key == ' '){
-        background.reset();
-    }
+
 }
 
 //--------------------------------------------------------------

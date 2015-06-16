@@ -3,7 +3,13 @@
 #include "ofMain.h"
 #include "ofxOsc.h"
 
-#define HOST "172.21.23.209"
+#include "ofxTET.h"
+
+
+#define HOST "localhost"
+
+//#define HOST "172.21.23.208"
+
 #define PORT 2222
 
 class ofApp : public ofBaseApp{
@@ -25,5 +31,9 @@ class ofApp : public ofBaseApp{
 		
     ofxOscSender sender;
     
+    void exit();
+    ofxTET tet;
+    gtl::GazeData recentGazeData;
+
 
 };

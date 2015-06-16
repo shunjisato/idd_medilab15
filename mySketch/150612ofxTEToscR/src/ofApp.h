@@ -2,9 +2,8 @@
 
 #include "ofMain.h"
 #include "ofxOsc.h"
-
-#define HOST "172.21.23.209"
 #define PORT 2222
+
 
 class ofApp : public ofBaseApp{
 
@@ -23,7 +22,12 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-    ofxOscSender sender;
+    void dumpOSC(ofxOscMessage e);
+    ofxOscReceiver receiver;
     
+    ofPoint remoteEye;
 
+    string eyeState;
+
+    
 };
