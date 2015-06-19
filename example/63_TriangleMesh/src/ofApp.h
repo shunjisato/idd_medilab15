@@ -23,4 +23,6 @@ public:
 	ofVboMesh mesh; // 3Dメッシュ（VBO）
 	int w, h; // メッシュの幅と高さ
     int stepSize, xSteps, ySteps; // メッシュのグリッド
+    
+    ofPlanePrimitive plane;
 };

@@ -17,8 +17,9 @@ void ofApp::setup(){
 //    cam.setDeviceID(0);
 //    フレームレートを設定する
     cam.setDesiredFrameRate(30);
-
+    cam.setDeviceID(0);
     cam.initGrabber(ofGetWidth(),ofGetHeight());
+    cam.listDevices();
     
 }
 

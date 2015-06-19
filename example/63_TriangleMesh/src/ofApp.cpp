@@ -12,6 +12,8 @@ void ofApp::setup(){
     w = 200;
     h = 200;
     
+
+    
     createMesh();
 }
 
