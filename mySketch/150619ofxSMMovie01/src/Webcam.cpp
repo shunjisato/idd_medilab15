@@ -4,7 +4,7 @@ void Webcam::setup(){
     cam.isFrameNew();
     cam.setDesiredFrameRate(30);
     cam.setDeviceID(0);
-    cam.initGrabber(620, 480);
+    cam.initGrabber(1280,720);
     cam.listDevices();
 }
 void Webcam::update(){
@@ -12,8 +12,7 @@ void Webcam::update(){
 }
 
 void Webcam::draw(){
-    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
-    cam.draw(-320,-200);
+    cam.draw(0, 0, ofGetWidth(), ofGetHeight());
         
 }
 

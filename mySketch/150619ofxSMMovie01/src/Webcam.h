@@ -13,5 +13,6 @@ public:
     string getName();
     
     ofVideoGrabber cam;
+    ofTexture tex;
     
 };

@@ -11,7 +11,7 @@ void imitationMovie::update(){
 }
 
 void imitationMovie::draw(){
-    IMmovie.draw(0,0);
+    IMmovie.draw(0, 0, ofGetWidth(), ofGetHeight());
 }
 
 

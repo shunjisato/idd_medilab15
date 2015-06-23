@@ -30,10 +30,19 @@ void ofApp::update(){
     
     if(tet.foundGaze()){
         //        if(ofGetWidth()/3 < tet.getGazeData().lefteye.raw.x) {
-        if(ofGetWidth()/3 < tet.getGazeData().lefteye.raw.x ){
-           stateMachine.changeState("webcam");
+        
+        
+//        if(ofGetWidth()/3 < tet.getGazeData().lefteye.raw.x ){
+//            stateMachine.changeState("webcam");
+//            
+//        }
+        
+        if(mouseX > ofGetWidth()/3 && mouseX < ofGetWidth()/3 * 2 && mouseY < ofGetHeight()/2){
+            stateMachine.changeState("webcam");
             
-        }else {
+        }
+        
+        else {
             stateMachine.changeState("IMmovie");
         }
         
@@ -50,6 +59,8 @@ void ofApp::draw(){
     ofSetColor(255, 2552, 255);
     ofDrawBitmapString(" key s: start streaming data \n key e: stop streaming data \n key d: download calibresult \n key u: upload calibresult \n key t: save calibresult \n key c: load calibresult from text \n", 10,10);
 }
+
+
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
