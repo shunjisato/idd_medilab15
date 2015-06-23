@@ -29,10 +29,11 @@ void ofApp::update(){
     //    }
     
     if(tet.foundGaze()){
-        if(ofGetWidth()/3 < tet.getGazeData().lefteye.raw.x) {
-            stateMachine.changeState("webcam");
+        //        if(ofGetWidth()/3 < tet.getGazeData().lefteye.raw.x) {
+        if(ofGetWidth()/3 < tet.getGazeData().lefteye.raw.x ){
+           stateMachine.changeState("webcam");
             
-        } else {
+        }else {
             stateMachine.changeState("IMmovie");
         }
         

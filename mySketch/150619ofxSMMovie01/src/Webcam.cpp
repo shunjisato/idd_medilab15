@@ -13,7 +13,7 @@ void Webcam::update(){
 
 void Webcam::draw(){
     ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
-    cam.draw(-320,0);
+    cam.draw(-320,-200);
         
 }
 

@@ -1,7 +1,7 @@
 #include "imitationMovie.h"
 
 void imitationMovie::setup(){
-    IMmovie.loadMovie("countdown15.mov");
+    IMmovie.loadMovie("face.mp4");
     IMmovie.setLoopState(OF_LOOP_NORMAL);
 
 }
