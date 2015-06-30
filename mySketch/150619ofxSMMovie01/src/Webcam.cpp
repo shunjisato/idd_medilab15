@@ -3,7 +3,7 @@
 void Webcam::setup(){
     cam.isFrameNew();
     cam.setDesiredFrameRate(30);
-    cam.setDeviceID(0);
+    cam.setDeviceID(1);
     cam.initGrabber(1280,720);
     cam.listDevices();
 }

@@ -3,36 +3,26 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     cam.setDesiredFrameRate(30);
-    cam.setDeviceID(0);
+    cam.setDeviceID(1);
     cam.initGrabber(ofGetWidth(), ofGetHeight());
-    cam.listDevices();
-    
-    pseye.setDesiredFrameRate(30);
-    pseye.setDeviceID(0);
-    pseye.initGrabber(ofGetWidth(), ofGetHeight());
-    pseye.listDevices();
-    
-    pressed = true;
     
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     
-
-        cam.update();
-        pseye.update();
-        
+    
+    cam.update();
+    
+    
     
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    if(pressed){
-        cam.draw(0,0);
-    } else{
-        pseye.draw(0,0);
-    }
+    
+    cam.draw(0,0);
+    
 }
 
 //--------------------------------------------------------------
@@ -58,7 +48,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
     
-    pressed = true;
+
 }
 
 //--------------------------------------------------------------
@@ -77,6 +67,6 @@ void ofApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
+void ofApp::dragEvent(ofDragInfo dragInfo){
     
 }

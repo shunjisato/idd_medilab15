@@ -10,6 +10,10 @@ class imitationMovie : public itg::ofxState<SharedData> {
     void setup();
     void update();
     void draw();
+    
+    virtual void stateEnter();
+    virtual void stateExit();
+
     string getName();
 
     ofVideoPlayer IMmovie;

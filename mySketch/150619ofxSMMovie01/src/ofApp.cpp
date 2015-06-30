@@ -39,7 +39,6 @@ void ofApp::update(){
         
         if(mouseX > ofGetWidth()/3 && mouseX < ofGetWidth()/3 * 2 && mouseY < ofGetHeight()/2){
             stateMachine.changeState("webcam");
-            
         }
         
         else {

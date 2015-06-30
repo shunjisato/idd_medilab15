@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 
+
 class ofApp : public ofBaseApp{
     
 public:
@@ -22,4 +23,6 @@ public:
     ofShader shader;
     static const int NUM = 20;
     float freq[NUM];
+    
+
 };

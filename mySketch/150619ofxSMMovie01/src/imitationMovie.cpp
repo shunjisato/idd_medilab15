@@ -7,6 +7,7 @@ void imitationMovie::setup(){
 }
 void imitationMovie::update(){
     IMmovie.update();
+
     IMmovie.play();
 }
 
@@ -17,4 +18,14 @@ void imitationMovie::draw(){
 
 string imitationMovie::getName(){
     return "IMmovie";
+}
+
+void imitationMovie::stateEnter()
+{
+    IMmovie.setPaused(false);
+}
+
+void imitationMovie::stateExit()
+{
+    IMmovie.setPaused(true);
 }
