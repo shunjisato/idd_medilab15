@@ -15,6 +15,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofxOscMessage m;
     m.setAddress("/mouse/particle");
 
     
@@ -57,7 +58,6 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    pressed = true;
 
     ofxOscMessage m;
     m.setAddress("/mouse/button");
@@ -67,7 +67,6 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-    pressed = false;
 
     ofxOscMessage m;
     m.setAddress("/mouse/button");

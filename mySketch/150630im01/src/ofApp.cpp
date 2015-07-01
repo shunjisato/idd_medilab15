@@ -12,9 +12,10 @@ void ofApp::setup(){
     
     tet.setup();
     
+    sender.setup(HOST, PORT);
+    
     stateMachine.addState<Webcam>();
     stateMachine.addState<imitationMovie>();
-
     stateMachine.changeState("webcam");
     
 }
@@ -22,69 +23,49 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     if(tet.foundGaze()){
-        //        if(ofGetWidth()/3 < tet.getGazeData().lefteye.raw.x) {
+        //        ofxOscMessage m;
+        //        m.setAddress("/mouse/position");
+        //        m.addIntArg(mouseX);
+        //        m.addIntArg(mouseY);
+        //        sender.sendMessage(m);
         
+        ofxOscMessage m;
+        m.setAddress("/eye/position");
+        m.addFloatArg(tet.getGazeData().righteye.pcenter.x);
+        sender.sendMessage(m);
         
-//        if(ofGetWidth()/3 < tet.getGazeData().lefteye.raw.x ){
-//            stateMachine.changeState("webcam");
-//            
-//        }
         
         if(mouseX > ofGetWidth()/3 && mouseX < ofGetWidth()/3 * 2 && mouseY < ofGetHeight()/2){
-//            if(tet.getGazeData().righteye.avg.x > ofGetWidth()/3 && tet.getGazeData().righteye.avg.x < ofGetWidth()/3 * 2 && tet.getGazeData().righteye.avg.x < ofGetHeight()/2){
+            //if(tet.getGazeData().lefteye.raw.x > ofGetWidth()/3 && tet.getGazeData().lefteye.raw.x < ofGetWidth()/3 * 2 && tet.getGazeData().lefteye.raw.y < ofGetHeight()/3 *2){
             stateMachine.changeState("webcam");
         }
-        
         else {
             stateMachine.changeState("IMmovie");
         }
-        
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    if (tet.foundGaze()) {
-        ofSetColor(0, 255, 0);
-        ofRect(tet.getGazeData().lefteye.raw.x, tet.getGazeData().lefteye.raw.y, 10, 10);
-        ofRect(tet.getGazeData().righteye.raw.x, tet.getGazeData().righteye.raw.y, 10, 10);
-    }
-    ofSetColor(255, 2552, 255);
-    ofDrawBitmapString(" key s: start streaming data \n key e: stop streaming data \n key d: download calibresult \n key u: upload calibresult \n key t: save calibresult \n key c: load calibresult from text \n", 10,10);
+    //    if (tet.foundGaze()) {
+    //        ofSetColor(0, 255, 0);
+    //        ofRect(tet.getGazeData().lefteye.raw.x, tet.getGazeData().lefteye.raw.y, 10, 10);
+    //        ofRect(tet.getGazeData().righteye.raw.x, tet.getGazeData().righteye.raw.y, 10, 10);
+    //    }
+    //    ofSetColor(255, 2552, 255);
+    //    ofDrawBitmapString(" key s: start streaming data \n key e: stop streaming data \n", 10,10);
 }
 
 
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if (key == '1') {
-        stateMachine.changeState("webcam");
-    }
-    if (key == '2') {
-        stateMachine.changeState("IMmovie");
-    }
-    if(key == 'f'){
-        ofToggleFullscreen();
-    }
-    
-    
     if (key == 's') {
         tet.requestStreamingData();
     }else if (key == 'e'){
         tet.requestStreamingDataStop();
-    }else if (key == 'd'){
-        tet.requestCalibResult();
-    }else if (key == 't'){
-        // API not supported !
-        // save calibdata to text
-        // tet.saveCalibResult();
-    }else if (key == 'u'){
-        // API not supported !
-        //tet.sendCalibResult();
-    }else if (key == 'c'){
-        // API not supported !
-        // load text to calibdata
-        // tet.loadCalibResult();
+    }else if(key == 'f'){
+        ofToggleFullscreen();
     }
 }
 
