@@ -13,8 +13,9 @@ void main() {
         st.y -= 0.5;
         // Sin波で濃淡をつける + 時間による変化
         st.y += sin(st.x * freq[i] + u_time) * 0.2 * sin(u_time * freq[i] * 0.1);
+//        st.y += sin(st.y * freq[i] + u_time) * 0.2 * sin(u_time * freq[i] * 0.1);
         // 1から引いて、乗算する
-        color += vec3(1.0 - pow(abs(st.y), 0.75/float(NUM)));
+        color += vec3(1.0 - pow(abs(st.y), 0.1/float(NUM)));
     }
     // 色を設定
     gl_FragColor = vec4(color.r * 0.2, color.g * 0.5, color.b * 1.0, 1.0);

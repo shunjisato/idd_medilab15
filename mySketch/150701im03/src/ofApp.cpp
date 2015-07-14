@@ -29,20 +29,25 @@ void ofApp::update(){
         //        m.addIntArg(mouseY);
         //        sender.sendMessage(m);
         
-        ofxOscMessage m;
-        m.setAddress("/eye/position");
-        m.addFloatArg(tet.getGazeData().righteye.raw.x);
-        sender.sendMessage(m);
+//        ofxOscMessage m;
+//        m.setAddress("/eye/position");
+//        m.addFloatArg(tet.getGazeData().righteye.raw.x);
+//        sender.sendMessage(m);
         
         
-//        if(mouseX > ofGetWidth()/3 && mouseX < ofGetWidth()/3 * 2 && mouseY < ofGetHeight()/2){
-            if(tet.getGazeData().lefteye.raw.x > ofGetWidth()/3 && tet.getGazeData().lefteye.raw.x < ofGetWidth()/3 * 2 && tet.getGazeData().lefteye.raw.y < ofGetHeight()/3 *2){
+        if(mouseX > ofGetWidth()/3 && mouseX < ofGetWidth()/3 * 2 && mouseY < ofGetHeight()/2){
+//        if(tet.getGazeData().lefteye.raw.x > ofGetWidth()/3 && tet.getGazeData().lefteye.raw.x < ofGetWidth()/3 * 2 && tet.getGazeData().lefteye.raw.y < ofGetHeight()/3 *2){
             stateMachine.changeState("webcam");
         }
         else {
             stateMachine.changeState("IMmovie");
         }
     }
+    
+    ofxOscMessage m;
+    m.setAddress("/eye/position");
+    m.addFloatArg(mouseX);
+    sender.sendMessage(m);
 }
 
 //--------------------------------------------------------------

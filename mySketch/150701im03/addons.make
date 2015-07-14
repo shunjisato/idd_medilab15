@@ -1,0 +1,6 @@
+ofxKinect
+ofxNetwork
+ofxOsc
+ofxPS3EyeGrabber
+ofxStateMachine
+ofxTET
